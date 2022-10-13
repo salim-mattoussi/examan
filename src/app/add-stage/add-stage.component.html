@@ -1,0 +1,37 @@
+<br>
+<form #f="ngForm" >
+    <!-- titre input -->
+    <div class="form-outline mb-4">
+      <input type="text" name="titre" class="form-control"  [(ngModel)]="stage.titre"  required minlength="3" #t="ngModel"/>
+      <label class="form-label" >Titre</label>
+      <div *ngIf="t.invalid && t.touched">
+        <p *ngIf="t.hasError('required')">this field is required</p>
+        <p *ngIf="t.hasError('minlength')">minlength error</p>
+      </div>
+    </div>
+  
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      <input type="email" name="entreprise" class="form-control"  [(ngModel)]="stage.entreprise" required minlength="3" #e="ngModel"/>
+      <label class="form-label" >entreprise</label>
+      <div *ngIf="e.invalid && e.touched">
+        <p *ngIf="e.hasError('required')">this field is required</p>
+        <p *ngIf="e.hasError('minlength')">minlength error</p>
+      </div>
+    </div>
+  
+    <!-- Message input -->
+    <div class="form-outline mb-4">
+      <textarea class="form-control" name="description" rows="4" [(ngModel)]="stage.description" required minlength="3" #d="ngModel"></textarea>
+      <label class="form-label" >description</label>
+      <div *ngIf="d.invalid && d.touched">
+        <p *ngIf="d.hasError('required')">this field is required</p>
+        <p *ngIf="d.hasError('minlength')">minlength error</p>
+      </div>
+    </div>
+  
+   
+  
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4" (click)="save()">ajouter</button>
+  </form>
